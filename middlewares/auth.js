@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const authentication = async (req, res, next) => {
 	try {
-
+		
 		const token = req.header("Authorization");
 		console.log(token);
 		const user = jwt.verify(token, "secretKey");
@@ -12,7 +12,7 @@ const authentication = async (req, res, next) => {
 		let currUser = await User.findByPk(user.userId);
 		req.user = currUser;
 		next();
-	} catch (error) {
+	} catch (error) { 
 		console.log(error);
 		return res.status(401).json({ success: false, message: "error here" });
 	}

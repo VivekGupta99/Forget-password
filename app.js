@@ -41,6 +41,7 @@ app.use('/premium', premium_route)
 app.use('/password', password_route)
 
 // app.use((req,res)=>{
+
 // 	res.sendFile(path.join(__dirname,`public/${req.url}`))
 // })  
 

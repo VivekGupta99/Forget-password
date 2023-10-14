@@ -39,7 +39,7 @@ const forgotPassword = async (req, res, next) => {
         console.log("Using API key:", apiKey.apiKey);
         const transEmailApi = new Sib.TransactionalEmailsApi();
         const sender = {
-            email: "mesahilsevda@gmail.com",
+            email: "vg821380@gmail.com",
         };
         const receivers = [
             {

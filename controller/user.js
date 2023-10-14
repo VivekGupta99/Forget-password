@@ -13,7 +13,7 @@ const getLoginPage = async (req, res, next) => {
 };
 const getSignupPage = async (req, res, next) => {
 	try {
-		res.sendFile(path.join(__dirname, "../", "public", "signup", "signup.html"));
+		res.sendFile(path.join(__dirname, "../", "public","signup", "signup.html"));
 	} catch (error) {
 		console.log(error);
 	}
@@ -23,7 +23,7 @@ const signup = async (req, res, next) => {
 		const name = req.body.name;
 		const email = req.body.email;
 		const password = req.body.password;
-		let obj = await User.findOne({ where: { Email: email } });
+		let obj = await User.findOne({where:{ Email: email }});
 		if (obj) {
 			res.status(409).json({ message: "email already exits", success: false });
 		} else {
@@ -53,7 +53,7 @@ const login = async (req, res, next) => {
 		const email = req.body.email;
 		const password = req.body.password;
 		console.log("1")
-		let obj = await User.findOne({ where: { Email: email } });
+		let obj = await User.findOne({where:{ Email: email }});
 		if (obj) {
 			console.log("2")
 			let passwordMatch = await bcrypt.compare(password, obj.Password);
@@ -66,8 +66,8 @@ const login = async (req, res, next) => {
 			res.status(404).json({ success: false, message: "USER does not exist" });
 		}
 	} catch (error) {
-		res.status(500).json({ success: false, message: "hey buddy", });
+		res.status(500).json({ success: false , message: "hey buddy",});
 	}
 };
 
-module.exports = { getLoginPage, getSignupPage, signup, login };
+module.exports = { getLoginPage,getSignupPage,signup, login };
